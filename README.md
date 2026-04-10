@@ -78,7 +78,40 @@ These instructions cover deploying the complete integrated full-stack environmen
    uvicorn stock_server:app --port 8001 --reload
    ```
 
-## 6. How It Works
+## 6. Live Demo & Test Credentials
+
+The application enforces active GST validation. To perform a full end-to-end registration, you must use one of the whitelisted GST numbers from the mock database below. Alternatively, use the **1-Click Demo** buttons on the login page to securely bypass registration.
+
+### GST Mock Database (Whitelist)
+| Company Name | Valid Mock GST Number | State |
+|---|---|---|
+| Acme Manufacturing | `27AABCU9603R1ZM` | Maharashtra |
+| AlloyIndia Pvt Ltd | `29ABCDE1234F1Z5` | Karnataka |
+| SteelTech Industries | `33ABCDE1234F1Z8` | Tamil Nadu |
+| Infosys Technologies | `07AAACI1681G1Z9` | Delhi |
+| Birla Corporation | `24AADCB2230M1ZL` | Gujarat |
+| Tata Chemicals | `36AABCT1332L1ZH` | Telangana |
+| ITC Limited | `29AABCI7345P1ZF` | Karnataka |
+| Reliance Industries | `27AAACR5055K1Z3` | Maharashtra |
+| Global Build Corp | `22BBXYZ1234F1Z8` | Chhattisgarh |
+| Nexus Manufacturing | `11AABBC1234F1Z8` | Bihar |
+| ChemPrime Solutions | `44BBXYZ1234F1Z8` | Gujarat |
+| LogiTech Packaging | `55AABBC1234F1Z8` | Telangana |
+
+### Sample Full Registration Data
+
+**For Company (Buyer) Registration:**
+- **Company Name:** Tata Chemicals
+- **GST Number:** `36AABCT1332L1ZH`
+- **CIN Number:** `L24239MH1939PLC002893`
+
+**For Vendor (Supplier) Registration:**
+- **Company Name:** SteelTech Industries
+- **GST Number:** `33ABCDE1234F1Z8`
+
+---
+
+## 7. How It Works
 1. **Authentication Routing**: Upon arriving at the login gateway, users specify whether they are entering a "Demo" state or logging into a "Company/Vendor" state. The internal `authService` bifurcates data flows natively (`sessionStorage` vs `localStorage` vs `API`).
 2. **Real-time Inventory Injection**: For live company administrators, the React client executes periodic asymmetric fetches against the `http://localhost:8001/stock/{id}` microservice.
 3. **Payload Normalization**: The API returns high-speed JSON arrays formatted uniquely as `updates`. The frontend map translates zero-value entries into active React `Critical/Out` alert props via conditional logic.
@@ -108,5 +141,5 @@ This is prototype procurement software developed explicitly for the OreHack eval
 
 ## 13. Author
 **Dinesh Sugumar**
-Email: *(Provided on GitHub Profile)*
-GitHub: *(Add your link here)*
+Email: dillibaskarank@gmail.com
+GitHub: https://github.com/dineshsugumar-01/ZENITH
